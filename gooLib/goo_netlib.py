@@ -42,7 +42,7 @@ class goo_netlib:
 		headers = resp.getheaders()
 		if True: #self.config.isVerbose() or True:
 			#verbs = int(self.config.getVerbosity())
-			verbs = 3
+			verbs = 2
 			if verbs >= 2:
 				if status != 302:
 					stderr.write("[*] Results recived...\n")
@@ -56,9 +56,9 @@ class goo_netlib:
 		else:
 			#build a result object and return it
 			html = resp.read()	
-			stderr.write("%s" % (html)) # Needed?
+			# stderr.write("%s" % (html)) # Needed?
 			result = parseHTML(html) #returns a list of results
-			return result 
+			return result
 	def duckSearch(self,dork):
 		return
 	def bounceServer(self): #bounce to another google server
