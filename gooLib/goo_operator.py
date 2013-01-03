@@ -4,6 +4,7 @@ from goo_netlib import goo_netlib
 from goo_result import goo_result as Result
 from sys import argv
 from goo_writer import goo_writer as writer
+import urllib
 """
 	The Operator,
 		*Handles all netlib calls
@@ -34,6 +35,14 @@ class Operator:
 					if self.config.outFormat():
 						self.writer = writer(self.config)
 						self.writer.gooWriter(self.results)
+
+					# Else just display.
+					else:
+						for reslt in self.results:
+							print u'{\n\turl:%s\n\ttitle:%r\n\tsummary:%r\n\tcacheLink:%s\nkeywords:%s\n}' % \
+							((urllib.unquote(reslt.url.encode('ascii')), reslt.title, reslt.summary, \
+							urllib.unquote(reslt.cacheLink.encode('ascii')), reslt.keyWords))
+
 					"""
 					for result in self.results:
 						try:
