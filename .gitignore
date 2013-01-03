@@ -1,5 +1,11 @@
 *.py[cod]
 
+# Output files
+*.csv
+*.xml
+*.json
+*.html
+
 # C extensions
 *.so
 

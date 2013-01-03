@@ -38,11 +38,14 @@ class Operator:
 
 					# Else just display.
 					else:
-						for reslt in self.results:
-							print u'{\n\turl:%s\n\ttitle:%r\n\tsummary:%r\n\tcacheLink:%s\nkeywords:%s\n}' % \
-							((urllib.unquote(reslt.url.encode('ascii')), reslt.title, reslt.summary, \
-							urllib.unquote(reslt.cacheLink.encode('ascii')), reslt.keyWords))
-
+						try:
+							for reslt in self.results:
+								print u'{\n\turl:%s\n\ttitle:%r\n\tsummary:%r\n\tcacheLink:%s\nkeywords:%s\n}' % \
+								((urllib.unquote(reslt.url.encode('ascii')), reslt.title, reslt.summary, \
+								urllib.unquote(reslt.cacheLink.encode('ascii')), reslt.keyWords))
+						except Exception, e:
+							print "[!] problem in result repr"
+							raise Exception("\n\t[goo_result] Problem printing result:\n\t\t%s" % (str(e),))
 					"""
 					for result in self.results:
 						try:
