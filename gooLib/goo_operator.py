@@ -3,7 +3,7 @@ from goo_rcfile import goo_rcfile as rcfile #too lazy to fix the name here lols
 from goo_netlib import goo_netlib
 from goo_result import goo_result as Result
 from sys import argv
-import goo_writer
+from goo_writer import goo_writer as writer
 """
 	The Operator,
 		*Handles all netlib calls
@@ -29,10 +29,11 @@ class Operator:
 			if self.config: #check that its not None
 				if self.config.hasDork(): #check if a dork was supplied
 					self.results=self.runDork()
-					if self.config.hasOutFile:
-						pass
-						# Move to goo_writer for writing to file.
-						
+					
+					# Move to goo_writer for writing to file.
+					if self.config.outFormat():
+						self.writer = writer(self.config)
+						self.writer.gooWriter(self.results)
 					"""
 					for result in self.results:
 						try:

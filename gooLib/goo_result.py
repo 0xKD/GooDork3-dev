@@ -54,9 +54,10 @@ class goo_result:
 		self.textStrings=[]
 		self.titleTag=[]
 		self.header=dict() #headers
+		
 	def __repr__(self):
 		try:
-			return u"{\n\turl:%s\n\ttitle:%r\n\tsummary:%r\n\tcacheLink:%s\nkeywords:%s\n}" % (
+			return u'{\n\turl:%s\n\ttitle:%r\n\tsummary:%r\n\tcacheLink:%s\nkeywords:%s\n}' % (
 					urllib.unquote(self.url.encode('ascii')),
 					self.title,
 					self.summary,

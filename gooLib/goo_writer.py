@@ -1,5 +1,5 @@
 """
-	Handles writing to specific outfile
+	Handles writing to specific outfile/ printing to stdout in case outfile not specified.
 """
 import goo_csv
 import goo_xml
@@ -10,5 +10,5 @@ class goo_writer:
 	def __init__(self,config):
 		self.config = config	
 	def gooWriter(self,result):
-		pass
 		# Writes to specified outfile.
+		print result
